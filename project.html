@@ -1,0 +1,292 @@
+<html>
+<head>
+<link type="text/css" href="style.css">
+<title>
+Welcome to the Project By Abhinandan
+</title>
+<style type="text/css">
+td.dat
+{
+background:black;
+}
+td.white
+{
+
+}
+.dead
+{
+display:none;
+}
+.alive
+{
+display:show;
+}
+</style>
+<script type="text/javascript">
+function genquery()
+{
+var txt;
+var wtf=document.getElementById("chat");
+//wtf.innerHTML="<table border='5'>";
+var que="select SYMBOL";
+txt="<tr><th>SYMBOL</th>";
+wtf.innerHTML="";
+if(document.getElementById('series').checked==true)
+{
+que+=",SERIES";
+txt+="<th>SERIES</th>";
+}
+if(document.getElementById('open').checked==true)
+{
+que+=",OPEN";
+txt+="<th>OPEN</th>";
+}
+if(document.getElementById('high').checked==true)
+{
+que+=",HIGH";
+txt+="<th>HIGH</th>";
+}
+if(document.getElementById('low').checked==true)
+{
+que+=",LOW";
+txt+="<th>LOW</th>";
+}
+if(document.getElementById('close').checked==true)
+{
+que+=",CLOSE";
+txt+="<th>CLOSE</th>";
+}
+if(document.getElementById('last').checked==true)
+{
+que+=",LAST";
+txt+="<th>LAST</th>";
+}
+if(document.getElementById('prevclose').checked==true)
+{
+que+=",PREVCLOSE";
+txt+="<th>PREVCLOSE</th>";
+}
+if(document.getElementById('tottrdqty').checked==true)
+{
+que+=",TOTTRDQTY";
+txt+="<th>TOTTRDQTY</th>";
+}
+if(document.getElementById('tottrdval').checked==true)
+{
+que+=",TOTTRDVAL";
+txt+="<th>TOTTRDVAL</th>";
+}
+if(document.getElementById('timestamp').checked==true)
+{
+que+=",TIMESTAMP";
+txt+="<th>TIMESTAMP</th>";
+}
+if(document.getElementById('totaltrades').checked==true)
+{
+que+=",TOTALTRADES";
+txt+="<th>TOTALTRADES</th>";
+}
+if(document.getElementById('c7_r3').checked==true)
+{
+que+=",c7_r3";
+txt+="<th>c7_r3</th>";
+}
+if(document.getElementById('c7_r2').checked==true)
+{
+que+=",c7_r2";
+txt+="<th>c7_r2</th>";
+}
+if(document.getElementById('c7_r1').checked==true)
+{
+que+=",c7_r1";
+txt+="<th>c7_r1</th>";
+}
+if(document.getElementById('c7_pivot').checked==true)
+{
+que+=",c7_pivot";
+txt+="<th>c7_pivot</th>";
+}
+if(document.getElementById('c7_s1').checked==true)
+{
+que+=",c7_s1";
+txt+="<th>c7_s1</th>";
+}
+if(document.getElementById('c7_s2').checked==true)
+{
+que+=",c7_s2";
+txt+="<th>c7_s2</th>";
+}
+if(document.getElementById('c7_s3').checked==true)
+{
+que+=",c7_s3";
+txt+="<th>c7_s3</th>";
+}
+if(document.getElementById('c14_r3').checked==true)
+{
+que+=",c14_r3";
+txt+="<th>c14_r3</th>";
+}
+if(document.getElementById('c14_r2').checked==true)
+{
+que+=",c14_r2";
+txt+="<th>c14_r2</th>";
+}
+if(document.getElementById('c14_r1').checked==true)
+{
+que+=",c14_r1";
+txt+="<th>c14_r1</th>";
+}
+if(document.getElementById('c14_pivot').checked==true)
+{
+que+=",c14_pivot";
+txt+="<th>c14_pivot</th>";
+}
+if(document.getElementById('c14_s1').checked==true)
+{
+que+=",c14_s1";
+txt+="<th>c14_s1</th>";
+}
+if(document.getElementById('c14_s2').checked==true)
+{
+que+=",c14_s2";
+txt+="<th>c14_s2</th>";
+}
+if(document.getElementById('c14_s3').checked==true)
+{
+que+=",c14_s3";
+txt+="<th>c14_s3</th>";
+}
+txt+="</tr>";
+wtf.innerHTML=txt;
+que+=" from data where day=1";
+que+=" and c7_r3>" + document.getElementById('lim_c7_r3').value;
+que+=" and c7_r2>" + document.getElementById('lim_c7_r2').value;
+que+=" and c7_r1>" + document.getElementById('lim_c7_r1').value;
+que+=" and c7_pivot>" + document.getElementById('lim_c7_pivot').value;
+que+=" and c7_s1<" + document.getElementById('lim_c7_s1').value;
+que+=" and c7_s2<" + document.getElementById('lim_c7_s2').value;
+que+=" and c7_s3<" + document.getElementById('lim_c7_s3').value;
+que+=" and c14_r3>" + document.getElementById('lim_c14_r3').value;
+que+=" and c14_r2>" + document.getElementById('lim_c14_r2').value;
+que+=" and c14_r1>" + document.getElementById('lim_c14_r1').value;
+que+=" and c14_pivot>" + document.getElementById('lim_c14_pivot').value;
+que+=" and c14_s1<" + document.getElementById('lim_c14_s1').value;
+que+=" and c14_s2<" + document.getElementById('lim_c14_s2').value;
+que+=" and c14_s3<" + document.getElementById('lim_c14_s3').value;
+//document.getElementById('querydata').innerHTML=que;
+//document.getElementById('querydata').innerHTML+=document.getElementById('open').checked;
+//var xh=new XMLHttpRequest();
+var tr="getdata.php?query="+que;
+//document.getElementById("test").innerHTML=tr;
+//document.getElementById('querydata').innerHTML=tr;
+//if (xh.readyState==4 && xh.status==200)
+//    {
+  //  var ex=document.getElementById('querydata');
+    //var update=xh.responseText;
+  //  ex.innerHTML=update;
+    //}
+//xh.open("GET",tr,true);
+//xh.send();
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","getdata.php?query="+que,true);
+xmlhttp.send();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    var update=xmlhttp.responseText;
+    wtf.innerHTML+=update;
+}
+}
+xmlhttp.open("GET","getdata.php?query=" + que,true);
+xmlhttp.send();
+}
+function showcheck()
+{
+var ele=document.getElementById("chkboxs");
+if(ele.className=="dead")
+ele.setAttribute("class","alive");
+else if(ele.className=="alive")
+ele.setAttribute("class","dead");
+}
+function showopt()
+{
+var ele=document.getElementById("more");
+if(ele.className=="dead")
+ele.setAttribute("class","alive");
+else if(ele.className=="alive")
+ele.setAttribute("class","dead");
+}
+</script>
+</head>
+<body>
+<h2><center><b>Search for Stocks</b></center></h2>
+<br>
+<h4><b>Filter Options</b></h4>
+<br>
+<a href="javascript:showcheck()">Select the fields to display</a><br />
+<ul id="chkboxs" class="dead">
+<li><input type="checkbox" id="symbol" name="symbol" value="display" checked />Symbol</li>
+<li><input type="checkbox" id="series" name="series" value="display" />Series</li>
+<li><input type="checkbox" id="open" name="open" value="display" checked />Open</li>
+<li><input type="checkbox" id="high" name="high" value="display" checked />High</li>
+<li><input type="checkbox" id="low" name="low" value="display" checked />Low</li>
+<li><input type="checkbox" id="close" name="close" value="display" />Close</li>
+<li><input type="checkbox" id="last" name="last" value="display" />Last</li>
+<li><input type="checkbox" id="prevclose" name="prevclose" value="display" />Previous Close</li>
+<li><input type="checkbox" id="tottrdqty" name="tottrdqty" value="display" />Total Traded Quantity</li>
+<li><input type="checkbox" id="tottrdval" name="tottrdval" value="display" />Total Traded Value</li>
+<li><input type="checkbox" id="timestamp" name="timestamp" value="display" checked />Timestamp</li>
+<li><input type="checkbox" id="totaltrades" name="totaltrades" value="display" />Total Trades</li>
+<li><input type="checkbox" id="c7_r3" name="c7_r3" value="display" />R3 for 7 days</li>
+<li><input type="checkbox" id="c7_r2" name="c7_r2" value="display" />R2 for 7 days</li>
+<li><input type="checkbox" id="c7_r1" name="c7_r1" value="display" />R1 for 7 days</li>
+<li><input type="checkbox" id="c7_pivot" name="c7_pivot" value="display" />Pivot for 7 days</li>
+<li><input type="checkbox" id="c7_s1" name="c7_s1" value="display" />S1 for 7 days</li>
+<li><input type="checkbox" id="c7_s2" name="c7_s2" value="display" />S2 for 7 days</li>
+<li><input type="checkbox" id="c7_s3" name="c7_s3" value="display" />S3 for 7 days</li>
+<li><input type="checkbox" id="c14_r3" name="c14_r3" value="display" />R3 for 14 days</li>
+<li><input type="checkbox" id="c14_r2" name="c14_r2" value="display" />R2 for 14 days</li>
+<li><input type="checkbox" id="c14_r1" name="c14_r1" value="display" />R1 for 14 days</li>
+<li><input type="checkbox" id="c14_pivot" name="c14_pivot" value="display" />Pivot for 14 days</li>
+<li><input type="checkbox" id="c14_s1" name="c14_s1" value="display" />S1 for 14 days</li>
+<li><input type="checkbox" id="c14_s2" name="c14_s2" value="display" />S2 for 14 days</li>
+<li><input type="checkbox" id="c14_s3" name="c14_s3" value="display" />S3 for 14 days</li>
+</ul>
+<a href="javascript:showopt()">Click to add additional filters</a>
+<br />
+<br />
+<table>
+<tr><td class="head">7 day R3 ></td><td class="dat"><input type="number" id="lim_c7_r3" value="-1.0" /></td>
+<td class="head">7 day R2 ></td><td class="dat"><input type="number" id="lim_c7_r2" value="-1.0" /></td>
+<td class="head">7 day R1 ></td><td class="dat"><input type="number" id="lim_c7_r1" value="-1.0" /></td></tr>
+<tr><td class="head">7 day Pivot ></td><td class="dat"><input type="number" id="lim_c7_pivot" value="-1.0" /></td></tr>
+<tr><td class="head">7 day S1 <</td><td class="dat"><input type="number" id="lim_c7_s1" value="1.0" /></td>
+<td class="head">7 day S2 <</td><td class="dat"><input type="number" id="lim_c7_s2" value="1.0" /></td>
+<td class="head">7 day S3 <</td><td class="dat"><input type="number" id="lim_c7_s3" value="1.0" /></td></tr>
+<tr><td class="head">14 day R3 ></td><td class="dat"><input type="number" id="lim_c14_r3" value="0.8" /></td>
+<td class="head">14 day R2 ></td><td class="dat"><input type="number" id="lim_c14_r2" value="0.8" /></td>
+<td class="head">14 day R1 ></td><td class="dat"><input type="number" id="lim_c14_r1" value="0.8" /></td></tr>
+<tr><td class="head">14 day Pivot ></td><td class="dat"><input type="number" id="lim_c14_pivot" value="0.8" /></td></tr>
+<td class="head">14 day S1 <</td><td class="dat"><input type="number" id="lim_c14_s1" value="-0.3" /></td>
+<td class="head">14 day S2 <</td><td class="dat"><input type="number" id="lim_c14_s2" value="-0.5" /></td>
+<td class="head">14 day S3 <</td><td class="dat"><input type="number" id="lim_c14_s3" value="-0.8" /></td></tr>
+</table>
+<br />
+<form id="searchform" action="javascript:genquery()">
+<input type="submit" name="submit" value="search" />
+</form>
+<div id="test">
+</div>
+<table cellspacing="0" cellpadding="3" id="chat" border="1">
+</table>
+</body>
+</html>

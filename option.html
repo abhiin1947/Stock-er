@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>
+Welcome
+</title>
+<script type="text/javascript">
+function go()
+{
+document.forms['go'].submit();
+}
+function goo()
+{
+document.forms['goo'].submit();
+}
+</script>
+</head>
+<body>
+<ul>
+<li><a href="javascript:go()">Load new data</a>
+<li><a href="javascript:goo()">Use existing data</a>
+</ul>
+<form id="go" action="welcome.php" method="post">
+</form>
+<form id="goo" action="project.html" method="post">
+</form>
+</body>
+</html>

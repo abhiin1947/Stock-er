@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>
+Welcome
+</title>
+<style type="text/css">
+.log
+{
+background-color:#D3D3D3;
+width:380px;
+height:110px;
+border: 1px solid black;
+}
+.lab
+{
+width:180px;
+}
+.inp
+{
+width:200px;
+}
+</style>
+</head>
+<script type="text/javascript">
+function go()
+{
+document.forms['login'].submit();
+}
+</script>
+<body>
+<h2>Welcome</h2><br />
+Enter your Details to continue<br /><br />
+<div class="log">
+<form id='login' action="login.php" method="post">
+<table>
+<tr>
+<td><label class="lab" for="uname">Username:</label>
+<td><input class="inp" type="text" name="uname" id="uname" /></tr>
+<tr>
+<td><label class="lab" for="pass">Password:</label>
+<td><input class="inp" type="password" name="pass" id="pass" /></tr>
+</table>
+<a href="javascript:go()"> <img src="login.jpg" /></a>
+</form>
+</div>
+</body>
+</html>
